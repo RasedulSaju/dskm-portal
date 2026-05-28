@@ -8,7 +8,7 @@
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
     <?php foreach ($albums as $album): ?>
-        <a href="<?= url('/gallery/<?= $album['id'] ?>') ?>" class="card" style="padding: 0; overflow: hidden;">
+        <a href="<?= url('/gallery/' . $album['id'] . '') ?>" class="card" style="padding: 0; overflow: hidden;">
             <?php if ($album['cover_image']): ?>
                 <img src="<?= upload($album['cover_image']) ?>" style="width: 100%; height: 200px; object-fit: cover;">
             <?php else: ?>

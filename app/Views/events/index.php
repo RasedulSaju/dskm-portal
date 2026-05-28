@@ -6,7 +6,7 @@
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px;">
     <?php foreach ($events as $event): ?>
-        <a href="<?= url('/events/<?= $event['id'] ?>') ?>" class="card">
+        <a href="<?= url('/events/' . $event['id'] . '') ?>" class="card">
             <?php if ($event['banner']): ?>
                 <img src="<?= upload($event['banner']) ?>" alt="Event" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 16px;">
             <?php endif; ?>

@@ -34,7 +34,7 @@
                 <?php endif; ?>
             </div>
 
-            <a href="<?= url('/messages/<?= $profile['user_id'] ?>') ?>" class="btn-accent">
+            <a href="<?= url('/messages/' . $profile['user_id'] . '') ?>" class="btn-accent">
                 <i class="fas fa-envelope"></i> Message
             </a>
         </div>

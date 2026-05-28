@@ -4,7 +4,7 @@
     <div class="card" style="overflow-y: auto;">
         <h3 style="font-weight: 700; margin-bottom: 16px;">Conversations</h3>
         <?php foreach ($conversations as $conv): ?>
-            <a href="<?= url('/messages/<?= $conv['other_user_id'] ?>') ?>" style="display: flex; gap: 12px; padding: 12px; background: #f8fafc; border-radius: 8px; margin-bottom: 8px;">
+            <a href="<?= url('/messages/' . $conv['other_user_id'] . '') ?>" style="display: flex; gap: 12px; padding: 12px; background: #f8fafc; border-radius: 8px; margin-bottom: 8px;">
                 <img src="<?= $conv['avatar'] ? upload($conv['avatar']) : 'https://ui-avatars.com/api/?name=' . urlencode($conv['full_name_en']) ?>" style="width: 48px; height: 48px; border-radius: 50%;">
                 <div style="flex: 1; min-width: 0;">
                     <div style="font-weight: 600; color: var(--primary);"><?= htmlspecialchars($conv['full_name_en']) ?></div>
