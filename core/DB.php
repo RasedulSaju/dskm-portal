@@ -23,13 +23,24 @@ class DB
         $cfg = $this->config['connections'][$this->config['default']];
         $dsn = "mysql:host={$cfg['host']};port={$cfg['port']};dbname={$cfg['database']};charset={$cfg['charset']}";
 
+        // Build PDO options - compatible with PHP 7.x, 8.x, and 8.5+
+        $pdoOptions = [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES   => false,
+        ];
+
+        // Use correct constant depending on PHP version
+        if (PHP_VERSION_ID >= 80500 && defined('Pdo\\Mysql::ATTR_INIT_COMMAND')) {
+            $pdoOptions[\Pdo\Mysql::ATTR_INIT_COMMAND] = "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci";
+        } elseif (defined('PDO::MYSQL_ATTR_INIT_COMMAND')) {
+            $pdoOptions[PDO::MYSQL_ATTR_INIT_COMMAND] = "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci";
+        }
+
         try {
-            $this->pdo = new PDO($dsn, $cfg['username'], $cfg['password'], [
-                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES   => false,
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci",
-            ]);
+            $this->pdo = new PDO($dsn, $cfg['username'], $cfg['password'], $pdoOptions);
+            // Also run charset command directly for safety
+            $this->pdo->exec("SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci");
         } catch (PDOException $e) {
             error_log('DB Connection Error: ' . $e->getMessage());
             throw new \RuntimeException('Database connection failed. Please try again later.');

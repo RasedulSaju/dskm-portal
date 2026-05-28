@@ -1,9 +1,11 @@
 <?php
 // public/index.php
 
-// Error reporting (set to 0 in production)
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// Error reporting
+// Show all errors except deprecation warnings
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
 
 // Define base path for subfolder installs (e.g. /dskm-portal/public)
 // Automatically detected - works on localhost AND live domain

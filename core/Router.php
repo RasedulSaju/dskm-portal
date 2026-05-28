@@ -48,7 +48,7 @@ class Router
 
         // Remove base path if needed
         $basePath = defined('BASE_PATH') ? BASE_PATH : '';
-        if ($basePath && str_starts_with($uri, $basePath)) {
+        if ($basePath && strncmp($uri, $basePath, strlen($basePath)) === 0) {
             $uri = substr($uri, strlen($basePath));
         }
         $uri = $uri ?: '/';
