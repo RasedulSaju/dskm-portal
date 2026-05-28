@@ -5,11 +5,11 @@ return [
     'default' => 'mysql',
     'connections' => [
         'mysql' => [
-            'host'      => getenv('DB_HOST')     ?: 'localhost',
-            'port'      => getenv('DB_PORT')     ?: '3306',
-            'database'  => getenv('DB_DATABASE') ?: 'dskm_portal',
-            'username'  => getenv('DB_USERNAME') ?: 'root',
-            'password'  => getenv('DB_PASSWORD') ?: '',
+            'host'      => Env::get('DB_HOST',     'localhost'),
+            'port'      => Env::get('DB_PORT',     '3306'),
+            'database'  => Env::get('DB_DATABASE', 'dskm_portal'),
+            'username'  => Env::get('DB_USERNAME', 'root'),
+            'password'  => Env::get('DB_PASSWORD', ''),
             'charset'   => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
         ],

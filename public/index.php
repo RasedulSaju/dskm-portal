@@ -2,10 +2,13 @@
 // public/index.php
 
 // Error reporting
-// Show all errors except deprecation warnings
 error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
+
+// Load .env file FIRST before anything else
+require_once dirname(__DIR__) . '/core/Env.php';
+Env::load(dirname(__DIR__) . '/.env');
 
 // Define base path for subfolder installs (e.g. /dskm-portal/public)
 // Automatically detected - works on localhost AND live domain
