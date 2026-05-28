@@ -5,6 +5,12 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+// Define base path for subfolder installs (e.g. /dskm-portal/public)
+// Automatically detected - works on localhost AND live domain
+$scriptDir = dirname($_SERVER['SCRIPT_NAME']);
+define('BASE_PATH', rtrim($scriptDir, '/'));
+define('BASE_URL', (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . BASE_PATH);
+
 // Start session
 session_start();
 
