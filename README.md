@@ -114,7 +114,7 @@ A complete, production-ready web application built with PHP 8+, MySQL, and moder
 
 ### 1. Clone/Download the Project
 ```bash
-git clone <repository-url> dskm-portal
+git clone https://github.com/RasedulSaju/dskm-portal dskm-portal
 cd dskm-portal
 ```
 
