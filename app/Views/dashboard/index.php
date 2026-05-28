@@ -50,7 +50,7 @@
             <h2 style="font-size: 20px; font-weight: 700; color: var(--primary);">
                 <i class="fas fa-calendar"></i> Upcoming Events
             </h2>
-            <a href="/events" style="color: var(--accent); font-weight: 600; font-size: 14px;">View All</a>
+            <a href="<?= url(\'/events\') ?>" style="color: var(--accent); font-weight: 600; font-size: 14px;">View All</a>
         </div>
 
         <?php if (empty($upcomingEvents)): ?>
@@ -61,7 +61,7 @@
                     <div style="display: flex; justify-content: space-between; align-items: start;">
                         <div style="flex: 1;">
                             <h3 style="font-weight: 700; color: var(--primary); margin-bottom: 8px;">
-                                <a href="/events/<?= $event['id'] ?>"><?= htmlspecialchars($event['title']) ?></a>
+                                <a href="<?= url(\'/events/<?= $event['id'] ?>\') ?>"><?= htmlspecialchars($event['title']) ?></a>
                             </h3>
                             <div style="font-size: 14px; color: #64748b;">
                                 <i class="fas fa-calendar-alt"></i> <?= formatDate($event['event_date'], 'd M Y, g:i A') ?>
@@ -89,7 +89,7 @@
             <p style="color: #64748b; text-align: center; padding: 20px 0;">No members online</p>
         <?php else: ?>
             <?php foreach ($onlineMembers as $member): ?>
-                <a href="/members/<?= $member['id'] ?>" style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #f8fafc; border-radius: 8px; margin-bottom: 8px;">
+                <a href="<?= url(\'/members/<?= $member['id'] ?>\') ?>" style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #f8fafc; border-radius: 8px; margin-bottom: 8px;">
                     <img src="<?= $member['avatar'] ? upload($member['avatar']) : 'https://ui-avatars.com/api/?name=' . urlencode($member['full_name_en']) ?>" 
                          alt="Avatar" 
                          style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
@@ -112,7 +112,7 @@
         <h2 style="font-size: 20px; font-weight: 700; color: var(--primary);">
             <i class="fas fa-bullhorn"></i> Latest Announcements
         </h2>
-        <a href="/notices" style="color: var(--accent); font-weight: 600; font-size: 14px;">View All</a>
+        <a href="<?= url(\'/notices\') ?>" style="color: var(--accent); font-weight: 600; font-size: 14px;">View All</a>
     </div>
 
     <?php if (empty($recentNotices)): ?>
@@ -121,7 +121,7 @@
         <?php foreach ($recentNotices as $notice): ?>
             <div style="padding: 16px; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
                 <div>
-                    <a href="/notices/<?= $notice['id'] ?>" style="font-weight: 600; color: var(--primary);">
+                    <a href="<?= url(\'/notices/<?= $notice['id'] ?>\') ?>" style="font-weight: 600; color: var(--primary);">
                         <?= htmlspecialchars($notice['title']) ?>
                     </a>
                     <div style="font-size: 13px; color: #64748b; margin-top: 4px;">

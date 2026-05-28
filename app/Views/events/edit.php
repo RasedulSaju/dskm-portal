@@ -2,7 +2,7 @@
 <?php require dirname(__DIR__) . '/layouts/header.php'; ?>
 <div class="card" style="max-width: 700px; margin: 0 auto;">
     <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 24px;">Edit Event</h2>
-    <form method="POST" action="/events/<?= $event['id'] ?>/edit" enctype="multipart/form-data">
+    <form method="POST" action="<?= url(\'/events/<?= $event['id'] ?>/edit\') ?>" enctype="multipart/form-data">
         <?= csrf_field() ?>
         <div style="margin-bottom: 20px;">
             <label style="display: block; font-weight: 600; margin-bottom: 8px;">Event Title</label>

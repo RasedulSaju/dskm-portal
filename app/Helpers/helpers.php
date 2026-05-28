@@ -17,9 +17,24 @@ if (!function_exists('view')) {
     }
 }
 
+if (!function_exists('url')) {
+    function url(string $path = ''): string
+    {
+        $base = defined('BASE_PATH') ? BASE_PATH : '';
+        $path = '/' . ltrim($path, '/');
+        return $base . $path;
+    }
+}
+
 if (!function_exists('redirect')) {
     function redirect(string $url): void
     {
+        if (str_starts_with($url, 'http')) {
+            header("Location: {$url}");
+            exit;
+        }
+        $base = defined('BASE_PATH') ? BASE_PATH : '';
+        $url = $base . '/' . ltrim($url, '/');
         header("Location: {$url}");
         exit;
     }

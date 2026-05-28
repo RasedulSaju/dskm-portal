@@ -6,7 +6,7 @@
         <i class="fas fa-edit"></i> Edit Profile
     </h2>
 
-    <form method="POST" action="/dashboard/profile/edit" enctype="multipart/form-data">
+    <form method="POST" action="<?= url(\'/dashboard/profile/edit\') ?>" enctype="multipart/form-data">
         <?= csrf_field() ?>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
@@ -103,7 +103,7 @@
             <button type="submit" class="btn-primary">
                 <i class="fas fa-save"></i> Save Changes
             </button>
-            <a href="/dashboard/profile" class="btn-secondary">
+            <a href="<?= url(\'/dashboard/profile\') ?>" class="btn-secondary">
                 <i class="fas fa-times"></i> Cancel
             </a>
         </div>

@@ -15,7 +15,7 @@
             <i class="fas fa-paperclip"></i> View Attachment
         </a>
     <?php endif; ?>
-    <form method="POST" action="/admin/support/<?= $request['id'] ?>/status" style="border-top: 1px solid #e2e8f0; padding-top: 24px;">
+    <form method="POST" action="<?= url(\'/admin/support/<?= $request['id'] ?>/status\') ?>" style="border-top: 1px solid #e2e8f0; padding-top: 24px;">
         <?= csrf_field() ?>
         <div style="margin-bottom: 16px;">
             <label style="display: block; font-weight: 600; margin-bottom: 8px;">Update Status</label>

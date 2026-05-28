@@ -34,8 +34,8 @@
                     </div>
                 </div>
                 <div style="display: flex; gap: 12px;">
-                    <a href="/login" style="padding: 12px 24px; background: rgba(255,255,255,0.2); color: white; border-radius: 8px; font-weight: 600; backdrop-filter: blur(10px);">Login</a>
-                    <a href="/register" style="padding: 12px 24px; background: var(--accent); color: var(--primary); border-radius: 8px; font-weight: 700;">Register Now</a>
+                    <a href="<?= url(\'/login\') ?>" style="padding: 12px 24px; background: rgba(255,255,255,0.2); color: white; border-radius: 8px; font-weight: 600; backdrop-filter: blur(10px);">Login</a>
+                    <a href="<?= url(\'/register\') ?>" style="padding: 12px 24px; background: var(--accent); color: var(--primary); border-radius: 8px; font-weight: 700;">Register Now</a>
                 </div>
             </div>
 
@@ -49,10 +49,10 @@
                     আমাদের আল্মা ম্যাটারের সাথে সংযুক্ত থাকুন। পুরনো বন্ধুদের খুঁজে পান, ইভেন্টে যোগ দিন, এবং একসাথে নতুন স্মৃতি তৈরি করুন।
                 </p>
                 <div style="display: flex; gap: 16px; justify-content: center;">
-                    <a href="/register" style="padding: 16px 32px; background: var(--primary); color: white; border-radius: 12px; font-weight: 700; font-size: 18px;">
+                    <a href="<?= url(\'/register\') ?>" style="padding: 16px 32px; background: var(--primary); color: white; border-radius: 12px; font-weight: 700; font-size: 18px;">
                         <i class="fas fa-user-plus"></i> Join Now
                     </a>
-                    <a href="/login" style="padding: 16px 32px; background: white; color: var(--primary); border: 2px solid var(--primary); border-radius: 12px; font-weight: 700; font-size: 18px;">
+                    <a href="<?= url(\'/login\') ?>" style="padding: 16px 32px; background: white; color: var(--primary); border: 2px solid var(--primary); border-radius: 12px; font-weight: 700; font-size: 18px;">
                         <i class="fas fa-sign-in-alt"></i> Member Login
                     </a>
                 </div>

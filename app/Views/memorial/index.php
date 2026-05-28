@@ -7,7 +7,7 @@
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
     <?php foreach ($memorials as $memorial): ?>
-        <a href="/memorial/<?= $memorial['id'] ?>" class="card" style="text-align: center; background: #f8fafc;">
+        <a href="<?= url(\'/memorial/<?= $memorial['id'] ?>\') ?>" class="card" style="text-align: center; background: #f8fafc;">
             <?php if ($memorial['photo']): ?>
                 <img src="<?= upload($memorial['photo']) ?>" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 4px solid #cbd5e1;">
             <?php endif; ?>

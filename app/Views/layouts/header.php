@@ -53,35 +53,35 @@
         </div>
 
         <nav style="padding: 16px 0;">
-            <a href="/dashboard" class="<?= $_SERVER['REQUEST_URI'] === '/dashboard' ? 'active' : '' ?>">
+            <a href="<?= url(\'/dashboard\') ?>" class="<?= $_SERVER['REQUEST_URI'] === '/dashboard' ? 'active' : '' ?>">
                 <i class="fas fa-home"></i> Dashboard
             </a>
-            <a href="/members" class="<?= strpos($_SERVER['REQUEST_URI'], '/members') === 0 ? 'active' : '' ?>">
+            <a href="<?= url(\'/members\') ?>" class="<?= strpos($_SERVER['REQUEST_URI'], '/members') === 0 ? 'active' : '' ?>">
                 <i class="fas fa-users"></i> Members
             </a>
-            <a href="/events" class="<?= strpos($_SERVER['REQUEST_URI'], '/events') === 0 ? 'active' : '' ?>">
+            <a href="<?= url(\'/events\') ?>" class="<?= strpos($_SERVER['REQUEST_URI'], '/events') === 0 ? 'active' : '' ?>">
                 <i class="fas fa-calendar"></i> Events
             </a>
-            <a href="/notices" class="<?= strpos($_SERVER['REQUEST_URI'], '/notices') === 0 ? 'active' : '' ?>">
+            <a href="<?= url(\'/notices\') ?>" class="<?= strpos($_SERVER['REQUEST_URI'], '/notices') === 0 ? 'active' : '' ?>">
                 <i class="fas fa-bullhorn"></i> Notices
             </a>
-            <a href="/messages" class="<?= strpos($_SERVER['REQUEST_URI'], '/messages') === 0 ? 'active' : '' ?>">
+            <a href="<?= url(\'/messages\') ?>" class="<?= strpos($_SERVER['REQUEST_URI'], '/messages') === 0 ? 'active' : '' ?>">
                 <i class="fas fa-envelope"></i> Messages
                 <?php $unreadCount = (new \App\Models\Message())->getUnreadCount(auth()['id']); ?>
                 <?php if ($unreadCount > 0): ?>
                     <span class="badge badge-error" style="margin-left: auto;"><?= $unreadCount ?></span>
                 <?php endif; ?>
             </a>
-            <a href="/gallery" class="<?= strpos($_SERVER['REQUEST_URI'], '/gallery') === 0 ? 'active' : '' ?>">
+            <a href="<?= url(\'/gallery\') ?>" class="<?= strpos($_SERVER['REQUEST_URI'], '/gallery') === 0 ? 'active' : '' ?>">
                 <i class="fas fa-images"></i> Gallery
             </a>
-            <a href="/smoronika" class="<?= strpos($_SERVER['REQUEST_URI'], '/smoronika') === 0 ? 'active' : '' ?>">
+            <a href="<?= url(\'/smoronika\') ?>" class="<?= strpos($_SERVER['REQUEST_URI'], '/smoronika') === 0 ? 'active' : '' ?>">
                 <i class="fas fa-book"></i> Smoronika
             </a>
-            <a href="/memorial" class="<?= strpos($_SERVER['REQUEST_URI'], '/memorial') === 0 ? 'active' : '' ?>">
+            <a href="<?= url(\'/memorial\') ?>" class="<?= strpos($_SERVER['REQUEST_URI'], '/memorial') === 0 ? 'active' : '' ?>">
                 <i class="fas fa-dove"></i> Memorial
             </a>
-            <a href="/support" class="<?= strpos($_SERVER['REQUEST_URI'], '/support') === 0 ? 'active' : '' ?>">
+            <a href="<?= url(\'/support\') ?>" class="<?= strpos($_SERVER['REQUEST_URI'], '/support') === 0 ? 'active' : '' ?>">
                 <i class="fas fa-hands-helping"></i> Support
             </a>
 
@@ -89,13 +89,13 @@
                 <div style="margin: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px;">
                     <div style="color: #64748b; font-size: 11px; text-transform: uppercase; font-weight: 600; margin-bottom: 8px;">Admin</div>
                 </div>
-                <a href="/admin/dashboard" class="<?= strpos($_SERVER['REQUEST_URI'], '/admin') === 0 ? 'active' : '' ?>">
+                <a href="<?= url(\'/admin/dashboard\') ?>" class="<?= strpos($_SERVER['REQUEST_URI'], '/admin') === 0 ? 'active' : '' ?>">
                     <i class="fas fa-shield-alt"></i> Admin Panel
                 </a>
             <?php endif; ?>
 
             <div style="margin: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px;">
-                <form action="/logout" method="POST" style="margin: 0;">
+                <form action="<?= url(\'/logout\') ?>" method="POST" style="margin: 0;">
                     <?= csrf_field() ?>
                     <button type="submit" style="color: #cbd5e1; padding: 12px 0; width: 100%; text-align: left; display: flex; align-items: center; gap: 12px; background: none; border: none; cursor: pointer;">
                         <i class="fas fa-sign-out-alt" style="width: 20px;"></i> Logout
@@ -113,7 +113,7 @@
                 <h1 style="font-size: 24px; font-weight: 700; color: var(--primary);"><?= $pageTitle ?? 'Dashboard' ?></h1>
             </div>
             <div style="display: flex; align-items: center; gap: 16px;">
-                <a href="/dashboard/profile" style="display: flex; align-items: center; gap: 12px;">
+                <a href="<?= url(\'/dashboard/profile\') ?>" style="display: flex; align-items: center; gap: 12px;">
                     <?php $user = auth(); ?>
                     <div style="text-align: right;">
                         <div style="font-weight: 600; color: var(--primary);"><?= htmlspecialchars($user['full_name_en'] ?? $user['username']) ?></div>

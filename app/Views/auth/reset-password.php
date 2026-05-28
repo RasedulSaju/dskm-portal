@@ -34,7 +34,7 @@
             </div>
         <?php endif; ?>
 
-        <form method="POST" action="/reset-password">
+        <form method="POST" action="<?= url(\'/reset-password\') ?>">
             <?= csrf_field() ?>
             <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
 

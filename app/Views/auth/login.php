@@ -48,7 +48,7 @@
             <?php endif; ?>
 
             <!-- Login Form -->
-            <form method="POST" action="/login">
+            <form method="POST" action="<?= url(\'/login\') ?>">
                 <?= csrf_field() ?>
 
                 <div class="input-group">
@@ -79,7 +79,7 @@
                         <input type="checkbox" name="remember_me" value="1">
                         <span style="font-size: 14px; color: #64748b;">Remember me</span>
                     </label>
-                    <a href="/forgot-password" style="font-size: 14px; color: #D4AF37; font-weight: 600;">Forgot Password?</a>
+                    <a href="<?= url(\'/forgot-password\') ?>" style="font-size: 14px; color: #D4AF37; font-weight: 600;">Forgot Password?</a>
                 </div>
 
                 <button type="submit" class="btn-primary">
@@ -90,7 +90,7 @@
             <div style="text-align: center; margin-top: 24px; padding-top: 24px; border-top: 1px solid #e2e8f0;">
                 <p style="color: #64748b; font-size: 14px;">
                     Don't have an account? 
-                    <a href="/register" style="color: #D4AF37; font-weight: 700;">Register Now</a>
+                    <a href="<?= url(\'/register\') ?>" style="color: #D4AF37; font-weight: 700;">Register Now</a>
                 </p>
             </div>
         </div>

@@ -31,7 +31,7 @@
                 <?php endif; ?>
             </div>
 
-            <a href="/dashboard/profile/edit" class="btn-accent">
+            <a href="<?= url(\'/dashboard/profile/edit\') ?>" class="btn-accent">
                 <i class="fas fa-edit"></i> Edit Profile
             </a>
         </div>
