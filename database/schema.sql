@@ -479,7 +479,7 @@ INSERT INTO `site_settings` (`key_name`, `value`, `group_name`) VALUES
 -- Password: Admin@1234 (bcrypt hashed)
 INSERT INTO `users` (`username`, `email`, `mobile`, `password`, `role_id`, `status`, `email_verified_at`) VALUES
 ('superadmin', 'admin@dskmportal.com', '01700000000',
- '$2y$12$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.ucrm3W1pS', 1, 'active', NOW());
+ '$2y$12$Z32p9fTQ6baM9XA/jONgT.ULI6DJUmv9UaxtiXQP.8LiaxkEsaa2q', 1, 'active', NOW());
 
 INSERT INTO `profiles` (`user_id`, `full_name_bn`, `full_name_en`, `profession`) VALUES
 (1, 'সুপার অ্যাডমিন', 'Super Admin', 'System Administrator');
