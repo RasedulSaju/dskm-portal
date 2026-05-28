@@ -46,7 +46,7 @@
 
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px;">
     <?php foreach ($members as $member): ?>
-        <a href="<?= url(\'/members/<?= $member['id'] ?>\') ?>" class="card" style="transition: transform 0.2s; text-align: center;">
+        <a href="<?= url('/members/<?= $member['id'] ?>') ?>" class="card" style="transition: transform 0.2s; text-align: center;">
             <img src="<?= $member['avatar'] ? upload($member['avatar']) : 'https://ui-avatars.com/api/?name=' . urlencode($member['full_name_en']) ?>&size=200" 
                  alt="Avatar" 
                  style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 4px solid var(--accent);">

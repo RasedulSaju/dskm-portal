@@ -16,7 +16,7 @@
         <h1 style="font-size: 120px; font-weight: 800; margin-bottom: 20px;">500</h1>
         <h2 style="font-size: 32px; margin-bottom: 16px;">Internal Server Error</h2>
         <p style="font-size: 18px; opacity: 0.8; margin-bottom: 32px;">Something went wrong. Please try again later.</p>
-        <a href="<?= url(\'/dashboard\') ?>" style="padding: 14px 32px; background: #D4AF37; color: #0B1F3A; border-radius: 8px; font-weight: 700; text-decoration: none;">
+        <a href="<?= url('/dashboard') ?>" style="padding: 14px 32px; background: #D4AF37; color: #0B1F3A; border-radius: 8px; font-weight: 700; text-decoration: none;">
             Go to Dashboard
         </a>
     </div>

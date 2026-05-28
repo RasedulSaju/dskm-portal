@@ -14,7 +14,7 @@
     <?php if ($userRsvp): ?>
         <p style="color: #22c55e; font-weight: 600;">You're <?= $userRsvp ?>!</p>
     <?php else: ?>
-        <form method="POST" action="<?= url(\'/events/<?= $event['id'] ?>/rsvp\') ?>" style="display: flex; gap: 12px;">
+        <form method="POST" action="<?= url('/events/<?= $event['id'] ?>/rsvp') ?>" style="display: flex; gap: 12px;">
             <?= csrf_field() ?>
             <button type="submit" name="status" value="going" class="btn-primary">I'm Going</button>
             <button type="submit" name="status" value="maybe" class="btn-secondary">Maybe</button>

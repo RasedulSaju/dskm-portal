@@ -41,7 +41,7 @@
             </div>
         <?php endif; ?>
 
-        <form method="POST" action="<?= url(\'/forgot-password\') ?>">
+        <form method="POST" action="<?= url('/forgot-password') ?>">
             <?= csrf_field() ?>
 
             <div class="input-group">
@@ -57,7 +57,7 @@
         </form>
 
         <div style="text-align: center; margin-top: 24px; padding-top: 24px; border-top: 1px solid #e2e8f0;">
-            <a href="<?= url(\'/login\') ?>" style="color: #D4AF37; font-weight: 700; font-size: 14px;">
+            <a href="<?= url('/login') ?>" style="color: #D4AF37; font-weight: 700; font-size: 14px;">
                 <i class="fas fa-arrow-left"></i> Back to Login
             </a>
         </div>

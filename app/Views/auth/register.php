@@ -46,7 +46,7 @@
                 </div>
             <?php endif; ?>
 
-            <form method="POST" action="<?= url(\'/register\') ?>" enctype="multipart/form-data">
+            <form method="POST" action="<?= url('/register') ?>" enctype="multipart/form-data">
                 <?= csrf_field() ?>
 
                 <!-- Personal Info -->
@@ -220,7 +220,7 @@
             <div style="text-align: center; margin-top: 24px; padding-top: 24px; border-top: 1px solid #e2e8f0;">
                 <p style="color: #64748b; font-size: 14px;">
                     Already have an account? 
-                    <a href="<?= url(\'/login\') ?>" style="color: #D4AF37; font-weight: 700;">Login</a>
+                    <a href="<?= url('/login') ?>" style="color: #D4AF37; font-weight: 700;">Login</a>
                 </p>
             </div>
         </div>

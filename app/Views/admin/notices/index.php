@@ -2,7 +2,7 @@
 <?php require dirname(__DIR__,2) . '/layouts/header.php'; ?>
 <div style="display: flex; justify-content: space-between; margin-bottom: 24px;">
     <h2 style="font-size: 24px; font-weight: 700;">Notice Management</h2>
-    <a href="<?= url(\'/notices/create\') ?>" class="btn-accent"><i class="fas fa-plus"></i> Create Notice</a>
+    <a href="<?= url('/notices/create') ?>" class="btn-accent"><i class="fas fa-plus"></i> Create Notice</a>
 </div>
 <?php foreach ($notices as $notice): ?>
     <div class="card" style="margin-bottom: 16px;">

@@ -6,7 +6,7 @@
         <i class="fas fa-lock"></i> Change Password
     </h2>
 
-    <form method="POST" action="<?= url(\'/dashboard/change-password\') ?>">
+    <form method="POST" action="<?= url('/dashboard/change-password') ?>">
         <?= csrf_field() ?>
 
         <div style="margin-bottom: 20px;">

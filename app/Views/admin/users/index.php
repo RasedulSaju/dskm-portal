@@ -2,7 +2,7 @@
 <?php require dirname(__DIR__,2) . '/layouts/header.php'; ?>
 <div style="display: flex; justify-content: space-between; margin-bottom: 24px;">
     <h2 style="font-size: 24px; font-weight: 700;">User Management</h2>
-    <a href="<?= url(\'/admin/users/pending\') ?>" class="btn-accent">Pending Approvals</a>
+    <a href="<?= url('/admin/users/pending') ?>" class="btn-accent">Pending Approvals</a>
 </div>
 <div class="card">
     <table style="width: 100%; border-collapse: collapse;">

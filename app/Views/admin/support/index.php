@@ -5,7 +5,7 @@
     <div class="card" style="margin-bottom: 16px;">
         <div style="display: flex; justify-content: space-between; align-items: start;">
             <div style="flex: 1;">
-                <a href="<?= url(\'/admin/support/<?= $request['id'] ?>\') ?>" style="font-weight: 700; color: var(--primary); font-size: 18px;">
+                <a href="<?= url('/admin/support/<?= $request['id'] ?>') ?>" style="font-weight: 700; color: var(--primary); font-size: 18px;">
                     <?= htmlspecialchars($request['subject']) ?>
                 </a>
                 <p style="color: #64748b; font-size: 14px; margin-top: 8px;">

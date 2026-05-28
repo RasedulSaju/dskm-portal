@@ -3,12 +3,12 @@
 <div style="display: flex; justify-content: space-between; margin-bottom: 24px;">
     <h2 style="font-size: 24px; font-weight: 700;">Photo Gallery</h2>
     <?php if (\Core\Auth::isModerator()): ?>
-        <a href="<?= url(\'/gallery/create\') ?>" class="btn-accent"><i class="fas fa-plus"></i> Create Album</a>
+        <a href="<?= url('/gallery/create') ?>" class="btn-accent"><i class="fas fa-plus"></i> Create Album</a>
     <?php endif; ?>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
     <?php foreach ($albums as $album): ?>
-        <a href="<?= url(\'/gallery/<?= $album['id'] ?>\') ?>" class="card" style="padding: 0; overflow: hidden;">
+        <a href="<?= url('/gallery/<?= $album['id'] ?>') ?>" class="card" style="padding: 0; overflow: hidden;">
             <?php if ($album['cover_image']): ?>
                 <img src="<?= upload($album['cover_image']) ?>" style="width: 100%; height: 200px; object-fit: cover;">
             <?php else: ?>

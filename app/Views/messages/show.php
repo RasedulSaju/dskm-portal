@@ -21,7 +21,7 @@
         <?php endforeach; ?>
     </div>
     <div style="padding: 16px; border-top: 1px solid #e2e8f0;">
-        <form id="messageForm" method="POST" action="<?= url(\'/messages/send\') ?>" style="display: flex; gap: 12px;">
+        <form id="messageForm" method="POST" action="<?= url('/messages/send') ?>" style="display: flex; gap: 12px;">
             <?= csrf_field() ?>
             <input type="hidden" name="receiver_id" value="<?= $otherUser['id'] ?>">
             <input type="text" name="message" placeholder="Type a message..." required style="flex: 1; padding: 12px; border: 2px solid #e2e8f0; border-radius: 24px;">

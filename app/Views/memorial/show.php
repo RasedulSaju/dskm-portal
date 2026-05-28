@@ -22,7 +22,7 @@
         </div>
     <?php endif; ?>
     <div style="text-align: center; margin-top: 24px;">
-        <form method="POST" action="<?= url(\'/memorial/<?= $memorial['id'] ?>/tribute\') ?>" style="display: inline;">
+        <form method="POST" action="<?= url('/memorial/<?= $memorial['id'] ?>/tribute') ?>" style="display: inline;">
             <?= csrf_field() ?>
             <button type="submit" class="btn-primary">
                 <i class="fas fa-heart"></i> Pay Tribute (<?= $memorial['tributes'] ?>)
