@@ -192,11 +192,32 @@ if (!function_exists('validatePhone')) {
 }
 
 if (!function_exists('uploadFile')) {
-    function uploadFile(array $file, string $directory, array $allowedTypes = []): ?string
+    function uploadFile(array $file, string $directory, array $allowedTypes = [], ?string $oldFile = null): ?string
     {
         if ($file['error'] !== UPLOAD_ERR_OK) return null;
-        
-        if (!empty($allowedTypes) && !in_array($file['type'], $allowedTypes)) {
+
+        // Use ImageHelper for image files - converts to WebP, resizes, replaces old
+        $imageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+        $mimeType   = mime_content_type($file['tmp_name']);
+
+        if (in_array($mimeType, $imageTypes)) {
+            // Map directory name to image type for correct resize dimensions
+            $typeMap = [
+                'avatars'   => 'avatar',
+                'covers'    => 'cover',
+                'events'    => 'event',
+                'gallery'   => 'gallery',
+                'galleries' => 'gallery',
+                'memorials' => 'memorial',
+                'smoronika' => 'smoronika',
+                'notices'   => 'notice',
+            ];
+            $imageType = $typeMap[$directory] ?? 'general';
+            return \App\Helpers\ImageHelper::upload($file, $imageType, $oldFile);
+        }
+
+        // Non-image files (PDF etc.) - save as-is
+        if (!empty($allowedTypes) && !in_array($mimeType, $allowedTypes)) {
             return null;
         }
 
@@ -205,14 +226,18 @@ if (!function_exists('uploadFile')) {
 
         $uploadPath = $config['upload_path'] . $directory;
         if (!is_dir($uploadPath)) {
-            mkdir($uploadPath, 0755, true);
+            mkdir($uploadPath, 0775, true);
         }
 
-        $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
-        $filename = uniqid() . '_' . time() . '.' . $ext;
+        $ext      = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+        $filename = uniqid($directory . '_', true) . '.' . $ext;
         $destination = $uploadPath . '/' . $filename;
 
         if (move_uploaded_file($file['tmp_name'], $destination)) {
+            // Delete old file if replacing
+            if ($oldFile) {
+                \App\Helpers\ImageHelper::delete($oldFile);
+            }
             return $directory . '/' . $filename;
         }
 
@@ -223,13 +248,7 @@ if (!function_exists('uploadFile')) {
 if (!function_exists('deleteFile')) {
     function deleteFile(?string $path): bool
     {
-        if (!$path) return false;
-        $config = require dirname(__DIR__, 2) . '/config/app.php';
-        $fullPath = $config['upload_path'] . $path;
-        if (file_exists($fullPath)) {
-            return unlink($fullPath);
-        }
-        return false;
+        return \App\Helpers\ImageHelper::delete($path);
     }
 }
 

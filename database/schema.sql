@@ -465,7 +465,7 @@ CREATE TABLE IF NOT EXISTS `site_settings` (
 INSERT INTO `site_settings` (`key_name`, `value`, `group_name`) VALUES
 ('site_name', 'DSKM Batch Portal', 'general'),
 ('site_tagline', 'Dakhil 2010 & Alim 2012 Alumni', 'general'),
-('contact_email', 'admin@dskmportal.com', 'general'),
+('contact_email', 'noreply@demo.dskm.org', 'general'),
 ('contact_phone', '01700000000', 'general'),
 ('registration_open', '1', 'general'),
 ('require_admin_approval', '1', 'general'),
@@ -478,7 +478,7 @@ INSERT INTO `site_settings` (`key_name`, `value`, `group_name`) VALUES
 -- ============================================================
 -- Password: Admin@1234 (bcrypt hashed)
 INSERT INTO `users` (`username`, `email`, `mobile`, `password`, `role_id`, `status`, `email_verified_at`) VALUES
-('superadmin', 'admin@dskmportal.com', '01700000000',
+('superadmin', 'noreply@demo.dskm.org', '01700000000',
  '$2y$12$Z32p9fTQ6baM9XA/jONgT.ULI6DJUmv9UaxtiXQP.8LiaxkEsaa2q', 1, 'active', NOW());
 
 INSERT INTO `profiles` (`user_id`, `full_name_bn`, `full_name_en`, `profession`) VALUES

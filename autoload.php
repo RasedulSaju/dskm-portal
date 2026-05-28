@@ -8,6 +8,7 @@ spl_autoload_register(function ($class) {
     $namespaceMap = [
         'Core\\'          => 'core/',
         'App\Controllers\\' => 'app/Controllers/',
+        'App\Helpers\\'     => 'app/Helpers/',
         'App\Models\\'    => 'app/Models/',
         'App\Middleware\\' => 'app/Middleware/',
         'Controllers\\'   => 'app/Controllers/',
