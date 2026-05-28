@@ -5,10 +5,11 @@
         <div style="font-size: 14px; opacity: 0.9;">Total Members</div>
         <div style="font-size: 36px; font-weight: 800;"><?= $stats['total_members'] ?></div>
     </div>
-    <div class="card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
+    <a href="<?= url('/admin/users/pending') ?>" class="card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; text-decoration: none; display: block;">
         <div style="font-size: 14px; opacity: 0.9;">Pending Approvals</div>
         <div style="font-size: 36px; font-weight: 800;"><?= $stats['pending_users'] ?></div>
-    </div>
+        <div style="font-size: 12px; opacity: 0.8; margin-top: 4px;">Click to review →</div>
+    </a>
     <div class="card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">
         <div style="font-size: 14px; opacity: 0.9;">Total Events</div>
         <div style="font-size: 36px; font-weight: 800;"><?= $stats['total_events'] ?></div>

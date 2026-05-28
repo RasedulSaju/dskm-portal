@@ -9,19 +9,32 @@
 <?php else: ?>
     <?php foreach ($users as $user): ?>
         <div class="card" style="margin-bottom: 16px;">
-            <div style="display: flex; gap: 24px; align-items: start;">
-                <img src="<?= $user['avatar'] ? upload($user['avatar']) : 'https://ui-avatars.com/api/?name=' . urlencode($user['full_name_en']) ?>" style="width: 80px; height: 80px; border-radius: 50%;">
+            <div style="display: flex; gap: 24px; align-items: center;">
+                <img src="<?= $user['avatar'] ? upload($user['avatar']) : 'https://ui-avatars.com/api/?name=' . urlencode($user['full_name_en'] ?? 'User') . '&size=200' ?>"
+                     style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
                 <div style="flex: 1;">
-                    <h3 style="font-weight: 700; font-size: 18px;"><?= htmlspecialchars($user['full_name_en']) ?></h3>
-                    <p style="color: #64748b;"><?= htmlspecialchars($user['full_name_bn']) ?></p>
+                    <h3 style="font-weight: 700; font-size: 18px;"><?= htmlspecialchars($user['full_name_en'] ?? '') ?></h3>
+                    <p style="color: #64748b;"><?= htmlspecialchars($user['full_name_bn'] ?? '') ?></p>
                     <p style="font-size: 14px; margin-top: 8px;">
-                        <strong>Mobile:</strong> <?= htmlspecialchars($user['mobile']) ?><br>
-                        <strong>Username:</strong> @<?= htmlspecialchars($user['username']) ?>
+                        <strong>Mobile:</strong> <?= htmlspecialchars($user['mobile'] ?? '') ?><br>
+                        <strong>Username:</strong> @<?= htmlspecialchars($user['username'] ?? '') ?><br>
+                        <strong>Email:</strong> <?= htmlspecialchars($user['email'] ?? '') ?>
                     </p>
                 </div>
-                <div style="display: flex; gap: 8px;">
-                    <button onclick="if(confirm('Approve this user?'))ajax('/admin/users/<?= $user['id'] ?>/approve',{},'POST').then(()=>location.reload())" class="btn-primary">Approve</button>
-                    <button onclick="if(confirm('Reject this user?'))ajax('/admin/users/<?= $user['id'] ?>/reject',{},'POST').then(()=>location.reload())" class="btn-secondary">Reject</button>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <form method="POST" action="<?= url('/admin/users/' . $user['id'] . '/approve') ?>">
+                        <?= csrf_field() ?>
+                        <button type="submit" class="btn-primary" style="width: 100%;">
+                            <i class="fas fa-check"></i> Approve
+                        </button>
+                    </form>
+                    <form method="POST" action="<?= url('/admin/users/' . $user['id'] . '/reject') ?>">
+                        <?= csrf_field() ?>
+                        <button type="submit" class="btn-secondary" style="width: 100%;"
+                                onclick="return confirm('Reject this user?')">
+                            <i class="fas fa-times"></i> Reject
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

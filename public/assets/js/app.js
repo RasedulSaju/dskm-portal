@@ -25,9 +25,19 @@ document.addEventListener('click', (e) => {
     }
 });
 
+// Base path helper - reads from meta tag set by PHP
+function basePath(path) {
+    const base = document.querySelector('meta[name="base-path"]')?.content || '';
+    return base + '/' + path.replace(/^\//, '');
+}
+
 // AJAX helper function
 async function ajax(url, data = {}, method = 'POST') {
     try {
+        // Prepend base path if url starts with /
+        if (url.startsWith('/')) {
+            url = basePath(url);
+        }
         const formData = new FormData();
         Object.keys(data).forEach(key => {
             formData.append(key, data[key]);

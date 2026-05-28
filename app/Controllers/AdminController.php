@@ -126,31 +126,36 @@ class AdminController
     {
         $userId = (int) $params['id'];
         $this->userModel->updateStatus($userId, 'active');
-        
-        $user = $this->userModel->findById($userId);
-        sendNotification($userId, 'approval', 'Account Approved', 'Your account has been approved. You can now login!', '/login');
 
-        json(['success' => true, 'message' => 'User approved successfully']);
+        if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
+            json(['success' => true, 'message' => 'User approved successfully']);
+        } else {
+            redirect('/admin/users/pending');
+        }
     }
 
     public function rejectUser(array $params): void
     {
         $userId = (int) $params['id'];
         $this->userModel->updateStatus($userId, 'rejected');
-        
-        sendNotification($userId, 'rejection', 'Account Rejected', 'Your account registration was rejected.', null);
 
-        json(['success' => true, 'message' => 'User rejected']);
+        if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
+            json(['success' => true, 'message' => 'User rejected']);
+        } else {
+            redirect('/admin/users/pending');
+        }
     }
 
     public function suspendUser(array $params): void
     {
         $userId = (int) $params['id'];
         $this->userModel->updateStatus($userId, 'suspended');
-        
-        sendNotification($userId, 'suspension', 'Account Suspended', 'Your account has been suspended.', null);
 
-        json(['success' => true, 'message' => 'User suspended']);
+        if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
+            json(['success' => true, 'message' => 'User suspended']);
+        } else {
+            redirect('/admin/users');
+        }
     }
 
     public function deleteUser(array $params): void

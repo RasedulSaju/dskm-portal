@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base-path" content="<?= defined('BASE_PATH') ? BASE_PATH : '' ?>">
+    <meta name="csrf-token" content="<?= \Core\Session::csrfToken() ?>">
     <title><?= $title ?? 'DSKM Batch Portal' ?> - Dakhil 2010 & Alim 2012</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -89,8 +91,32 @@
                 <div style="margin: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px;">
                     <div style="color: #64748b; font-size: 11px; text-transform: uppercase; font-weight: 600; margin-bottom: 8px;">Admin</div>
                 </div>
-                <a href="<?= url('/admin/dashboard') ?>" class="<?= strpos($_SERVER['REQUEST_URI'], '/admin') === 0 ? 'active' : '' ?>">
-                    <i class="fas fa-shield-alt"></i> Admin Panel
+                <a href="<?= url('/admin/dashboard') ?>">
+                    <i class="fas fa-tachometer-alt"></i> Admin Dashboard
+                </a>
+                <a href="<?= url('/admin/users/pending') ?>">
+                    <i class="fas fa-user-check"></i> Pending Approvals
+                </a>
+                <a href="<?= url('/admin/users') ?>">
+                    <i class="fas fa-users-cog"></i> All Members
+                </a>
+                <a href="<?= url('/admin/events') ?>">
+                    <i class="fas fa-calendar-check"></i> Manage Events
+                </a>
+                <a href="<?= url('/admin/notices') ?>">
+                    <i class="fas fa-bullhorn"></i> Manage Notices
+                </a>
+                <a href="<?= url('/admin/smoronika') ?>">
+                    <i class="fas fa-file-alt"></i> Manage Articles
+                </a>
+                <a href="<?= url('/admin/support') ?>">
+                    <i class="fas fa-hands-helping"></i> Support Requests
+                </a>
+                <a href="<?= url('/admin/reports') ?>">
+                    <i class="fas fa-chart-bar"></i> Reports
+                </a>
+                <a href="<?= url('/admin/settings') ?>">
+                    <i class="fas fa-cog"></i> Settings
                 </a>
             <?php endif; ?>
 
